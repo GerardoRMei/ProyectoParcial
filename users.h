@@ -36,7 +36,7 @@ void StoreData(string user, int puntaje){
         if(players_scores[user]<puntaje){
             players_scores[user] = puntaje;
             contero--;
-        }else{}
+        }else{contero--;}
     }else{
         players_scores.insert(make_pair(user,puntaje));
     }

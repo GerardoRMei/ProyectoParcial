@@ -2,6 +2,8 @@
 #include "ZonaEspecial.h"
 #include "entidad.h"
 #include "users.h"
+#include<thread>
+#include<chrono>
 #include<vector>
 #include<time.h>
 #include<pthread.h>
@@ -235,15 +237,8 @@ void *enemyMove(void *arg){
     
 }
 void *ClockDown(void *arg){
-    int temporizador = 30;
-    while (true)
-    {
-        Sleep(1000);
-        temporizador--;
-        if(temporizador==0){
-            pthread_t eneaux[2];
-            
-        }
+    for(;;){
+        //this_thread::sleep_for(chrono::seconds(30));
     }
 
 }
