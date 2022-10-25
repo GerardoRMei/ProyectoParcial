@@ -146,6 +146,7 @@ void FillGameBoard(vector<vector<string>> board,ZonaEspecial monedas[3], ZonaEsp
 int main(){
     srand(time(NULL));
 
+    //pthread movements[2];
     vector<vector<string>> board;
     
     string newUser;
