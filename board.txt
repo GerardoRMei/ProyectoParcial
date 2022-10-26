@@ -9,8 +9,9 @@ Username: 	 Score:
 7. Maria	 1290
 8. Pena	 300
 9. Pedro	 200
-10. Josesito	 180
-11. Jala plz	 180
-12. pepe	 155
-13. Siuu	 0
-14. Noooo	 0
+10. 	 200
+11. Josesito	 180
+12. Jala plz	 180
+13. pepe	 155
+14. Siuu	 0
+15. Noooo	 0

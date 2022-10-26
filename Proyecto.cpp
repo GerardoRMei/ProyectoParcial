@@ -265,7 +265,6 @@ int main(){
     pthread_t jikan;
     int action, action2, action3, tiempo;
     string newUser;
-    void *ret_join;
     
     GenerateObjects(okane, SafeSpace, enemigo, player);
 
@@ -275,14 +274,12 @@ int main(){
         FillGameBoard(board,okane,SafeSpace, enemigo, player);
         cout<<"\n \n"<<movement_counter<<" Turns left"<<endl;
         //tiempo = pthread_create(&jikan,NULL,&ClockDown,NULL);
-        action = pthread_create(&jugador,NULL,&PlayerMove,NULL);
         action2 = pthread_create(&enemies[0],NULL,&enemyMove,NULL);
-        action2 = pthread_join(enemies[0],&ret_join);
-        action3 = pthread_create(&enemies[1],NULL,&enemyMove,NULL);
-        action3 = pthread_join(enemies[1],&ret_join);
+        pthread_join(enemies[0], NULL);
+        action = pthread_create(&jugador,NULL,&PlayerMove,NULL);
+        pthread_join(jugador,NULL);
         movement_counter--;
         checkGameOver();
-        system("pause");
         system("cls");
     }
 
