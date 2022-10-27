@@ -16,7 +16,7 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
 int board_X=25;
 int board_Y=25;
-bool GameOver=false, didWon=false, moved=false;
+bool GameOver=false, didWon=false;
 int movement_counter =50;
 int total_Score=0;
 ZonaEspecial okane[3], SafeSpace;
@@ -41,7 +41,7 @@ void GenerateObjects(){
 void instructions(){ //funcion estilo menu para que explicar al usuario.
     cout<<"\n\n";
     cout<<"Intructions:  \n";
-    cout<<"Goal: reach the safe zone before running out of time, also avoid the enemies\n";
+    cout<<"Goal: reach the safe zone (0) before running out of time, also avoid the enemies\n";
     cout<<"1. To move one right type 'r', for 2 spaces right type '2r'"<<"\n";
     cout<<"2. To move one left type 'l', for 2 spaces left type '2l'"<<"\n";
     cout<<"3. To move one up type 'u', for 2 spaces up type '2u'"<<"\n";
@@ -290,7 +290,7 @@ int main(){
         moved =false;
         checkGameOver();
         FillGameBoard();
-        //tiempo = pthread_create(&jikan,NULL,&ClockDown,NULL);
+        tiempo = pthread_create(&jikan,NULL,&ClockDown,NULL);
         action = pthread_create(&jugador,NULL,&PlayerMove,NULL);
         pthread_join(jugador,NULL);
         action2 = pthread_create(&enemies[0],NULL,&enemyMove,NULL);
