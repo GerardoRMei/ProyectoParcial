@@ -1,15 +1,15 @@
 SCORES 
 Username: 	 Score: 
 1. Gerardo	 3020
-2. Byleth	 2270
-3. New	 1370
-4. Erwin	 1360
-5. Testeo	 1350
+2. Testeo	 2310
+3. Byleth	 2270
+4. New	 1370
+5. Erwin	 1360
 6. Pepe	 1330
 7. Maria	 1290
 8. Pena	 300
 9. Pedro	 200
-10. 	 200
+10. Lopez	 200
 11. Josesito	 180
 12. Jala plz	 180
 13. pepe	 155
