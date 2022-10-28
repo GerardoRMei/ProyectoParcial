@@ -135,86 +135,74 @@ void *PlayerMove(void *arg){
         if(player.getposicionX()+1>=board_X){}
         else{
             player.setposiciones(player.getposicionX()+1,player.getposicionY());
-            moved = true;
         }
     }
     else if(action=="2r"){
             if(player.getposicionX()+2>=board_X){
             }else{
                 player.setposiciones(player.getposicionX()+2,player.getposicionY());
-                moved = true;
             }
     }
     else if(action=="l"){
             if(player.getposicionX()-1<0){}
             else{
                 player.setposiciones(player.getposicionX()-1,player.getposicionY());
-                moved = true;
             }
     }
     else if(action=="2l"){
             if(player.getposicionX()-2<0){}
             else{
                 player.setposiciones(player.getposicionX()-2,player.getposicionY());
-                moved = true;
             }
     }
     else if(action=="u"){
         if(player.getposicionY()-1<=0){}
         else{
             player.setposiciones(player.getposicionX(),player.getposicionY()-1);
-            moved = true;
         }
     }
     else if(action=="2u"){
             if(player.getposicionY()-2<=0){}
             else{
             player.setposiciones(player.getposicionX(),player.getposicionY()-2);
-            moved = true;
             }
     }
     else if(action=="d"){
         if(player.getposicionY()+1>=board_Y-1){}
         else{
         player.setposiciones(player.getposicionX(),player.getposicionY()+1);
-        moved = true;
         }
     }
     else if(action=="2d"){
         if(player.getposicionY()+2>=board_Y-1){}
         else{
         player.setposiciones(player.getposicionX(),player.getposicionY()+2);
-        moved = true;
         }    
     }
     else if(action=="dru"){
         if(player.getposicionX()+1>=board_X || player.getposicionY()-1<=0){}
         else{
         player.setposiciones(player.getposicionX()+1,player.getposicionY()-1);
-        moved = true;
+
         }
     }else if(action=="dlu"){
         if(player.getposicionX()-1<0 || player.getposicionY()-1<=0){}
         else{
         player.setposiciones(player.getposicionX()-1,player.getposicionY()-1);
-        moved = true;
         }
     }else if(action=="drd"){
         if(player.getposicionX()+1>=board_X || player.getposicionY()+1>=board_Y-1){}
         else{
         player.setposiciones(player.getposicionX()+1,player.getposicionY()+1);
-        moved = true;
         }
     }else if(action=="dld"){
         if(player.getposicionX()-1<0 || player.getposicionY()+1>=board_Y-1){}
         else{
         player.setposiciones(player.getposicionX()-1,player.getposicionY()+1);
-        moved = true;
         }
     }
     else{
         cout<<"Please type a valid movement, you lost a turn"<<endl;
-        moved = true;
         system("pause");
     }
     checkImpact();
@@ -252,15 +240,21 @@ void *enemyMove(void *arg){
     checkImpact();
     pthread_exit(NULL);
 }
+/*
 void *ClockDown(void *arg){
     Sleep(10000);
-    movement_counter--;
-    system("cls");
-    FillGameBoard();
+    if(GameOver==false){
+        movement_counter--;
+        system("cls");
+        FillGameBoard();
 
+    }else{
+
+    }
+   
     pthread_exit(NULL);
 }
-
+*/
 int getScore(){
     int puntaje=0;
     if(didWon==true){
@@ -287,10 +281,9 @@ int main(){
     GenerateObjects();
 
     while(!GameOver){
-        moved =false;
         checkGameOver();
         FillGameBoard();
-        tiempo = pthread_create(&jikan,NULL,&ClockDown,NULL);
+        //tiempo = pthread_create(&jikan,NULL,&ClockDown,NULL);
         action = pthread_create(&jugador,NULL,&PlayerMove,NULL);
         pthread_join(jugador,NULL);
         action2 = pthread_create(&enemies[0],NULL,&enemyMove,NULL);
