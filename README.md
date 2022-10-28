@@ -14,3 +14,5 @@ Threads are used for the entities actions and the timer, I decided to use thread
 Finally I use a map to register the scores with a "username". This makes the username (a string value) to be the key of each element of the map. If the username is registered it will check if the score is higher or lower. In case of being higher it will update the value to the new one. Finally it will be sorted in a descending order.
 
 The user aswell as the scores are registered on files, they appear in a way that it resembles a board of an arcade.
+
+Link: https://youtu.be/GUao4ccTb9U 
